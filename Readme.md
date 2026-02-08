@@ -5,7 +5,7 @@ The module allows you to:
     2. Style the inputs as you like. 
     3. Submit a secure payment PCI.
     4. Use a secure 3DS module. 
-    5. Use Google reCaptcha
+    5. Use Google reCaptcha (V2). It's highly recomended to integrate a bot protectio silution in your website as well. 
 
 In order to work with the module you will need to:
     1. Create a LowProfile deal for each submittion.
@@ -28,6 +28,7 @@ iframes must have the following ids:
     CardComCardNumber
     CardComCvv
     CardComCaptchaIframe
+
 
 
 
