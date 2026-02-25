@@ -94,9 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
             case "handleValidations":
                 if (msg.field === "cvv");
-                    setCvvFieldClass(msg.isValid);
+                setCvvFieldClass(msg.isValid);
                 if (msg.field === "cardNumber");
-                    setCardNumberClass(msg.isValid);
+                setCardNumberClass(msg.isValid);
                 if (msg.field === "reCaptcha") {
                     //if you want to enable the "pay" button after all iframe fields have beed validated
                 }
@@ -173,7 +173,7 @@ function submitForm(e) {
         expirationMonth: document.getElementById('expirationMonth').value,
         expirationYear: document.getElementById('expirationYear').value,
         cardOwnerPhone: '054512345678',
-        document: createDocument(),
+        document: createDocument(document.getElementById('cardOwnerEmail').value),
         numberOfPayments: "1",
     }
 
@@ -186,11 +186,11 @@ function submitForm(e) {
 
 //this is an example of Document object as in https://secure.cardcom.solutions/swagger/index.html?url=/swagger/v11/swagger.json#tag/LowProfile/operation/LowProfile_Create
 //Used for creating documents (invoice, etc)
-function createDocument() {
+function createDocument(customerEmail) {
     return {
         Name: "Cardcom",
-        Email: "support@cardcom.solutions.co.il",
-        IsSendByEmail: false,
+        Email: customerEmail || "support@cardcom.solutions.co.il",
+        IsSendByEmail: true,
         AddressLine1: "Harokmin 26",
         AddressLine2: "Azrieli Center",
         City: "Holon",
